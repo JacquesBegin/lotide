@@ -12,4 +12,5 @@ equals(head(["Lighthouse Labs", "Bootcamp", "Yay!"]), "Lighthouse Labs");
 equals(head([1, 2, 3, 4]), 1);
 equals(head(["Lighthouse Labs", "Bootcamp", "Yay!"]), "Bootcamp");
 equals(head([1, 2, 3, 4]), 4);
+equals(head([]));
 
