@@ -13,4 +13,4 @@ const equalArrays = function(arr1, arr2) {
   return true;
 }
 
-module.export = equalArrays;
+module.exports = equalArrays;
