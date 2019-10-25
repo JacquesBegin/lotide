@@ -1,4 +1,5 @@
 const equals = require("./assertEqual.js");
+const equalArrays = require("./compareArrays.js");
 
 // Create a function that returns the tail of an array (everything except the first element).
 
@@ -23,25 +24,18 @@ let tailArr2 = tail(arr2);
 let expectedArr1 = ["Bootcamp", "Yay!", "D"];
 let expectedArr2 = [2, 3, 4];
 
-let equal = true;
-// while (equal) {
-//   for (let x = 0; x < tailArr1.length; x++) {
-//     for (let y = 0; y < expectedArr1.length; y++) {
-//       if (equals(tailArr1[x], expectedArr1[y])) {
-//         equal = false;
-//         break;
-//       }
-//     }
-//   }
-//   break;
-// }
-if (tailArr1.length === expectedArr1.length) {
-  for (let x = 0; x < tailArr1.length; x++) {
-    equals(tailArr1[x], expectedArr1[x]) 
-  }
-} else {
-  console.log("Not equal lengths.");
-  equal = false;
-}
+console.log(equalArrays(tailArr1, expectedArr1));
+console.log(equalArrays(tailArr2, expectedArr2));
 
-console.log(`equals: ${equal}`);
+// let equal = true;
+
+// if (tailArr1.length === expectedArr1.length) {
+//   for (let x = 0; x < tailArr1.length; x++) {
+//     equals(tailArr1[x], expectedArr1[x]) 
+//   }
+// } else {
+//   console.log("Not equal lengths.");
+//   equal = false;
+// }
+
+// console.log(`equals: ${equal}`);
