@@ -13,6 +13,4 @@ const equalArrays = function(arr1, arr2) {
   return true;
 }
 
-
-console.log(equalArrays([1, 2, 3, 4], [1, 2, 3, 4]));
-console.log(equalArrays([2, 1, 4, 3], [1, 3, 4, 5]));
+module.export = equalArrays;
