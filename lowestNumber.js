@@ -8,7 +8,7 @@ const lowestNumber = function(arr) {
   } else {
     let lowest = arr[0];
     for (let x = 1; x < arr.length; x++) {
-      lowest = lowest < arr[x] ? lowest : arr[x];
+      if (arr[x] < lowest) lowest = arr[x];
     }
     return lowest;
   }
