@@ -11,3 +11,5 @@ function eqArrays(arr1, arr2) {
 }
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 4]), true);
+
+module.exports = eqArrays;
