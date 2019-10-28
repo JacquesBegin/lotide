@@ -14,3 +14,5 @@ function assertArraysEqual(arr1, arr2, expected) {
 }
 
 assertArraysEqual([1, 2, 3], [1, 2, 4], false);
+
+module.exports = assertArraysEqual;
