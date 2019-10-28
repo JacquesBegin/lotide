@@ -13,6 +13,6 @@ function assertArraysEqual(arr1, arr2, expected) {
   (eqArrays(arr1, arr2) === expected) ? console.log(`✅ Assertion Passed`) : console.log(`⛔️ Assertion Failed`);
 }
 
-assertArraysEqual([1, 2, 3], [1, 2, 4], false);
+// assertArraysEqual([1, 2, 3], [1, 2, 4], false);
 
 module.exports = assertArraysEqual;

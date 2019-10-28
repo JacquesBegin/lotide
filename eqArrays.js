@@ -10,6 +10,6 @@ function eqArrays(arr1, arr2) {
   return false;
 }
 
-assertEqual(eqArrays([1, 2, 3], [1, 2, 4]), true);
+// assertEqual(eqArrays([1, 2, 3], [1, 2, 4]), true);
 
 module.exports = eqArrays;
