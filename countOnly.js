@@ -3,7 +3,7 @@ const assertEqual = require("./assertEqual.js");
 const countOnly = function(allItems, itemsToCount) {
   let counted = {};
   allItems.forEach(element => {
-    if (itemsToCount[element] && itemsToCount[element]) {
+    if (itemsToCount[element]) {
       console.log("Hi");
       if (counted[element]) {
         counted[element]++;
