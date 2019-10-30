@@ -1,7 +1,18 @@
 const assertEqual = require("./assertEqual.js");
 
 const countOnly = function(allItems, itemsToCount) {
-
+  let counted = {};
+  allItems.forEach(element => {
+    if (itemsToCount[element] && itemsToCount[element]) {
+      console.log("Hi");
+      if (counted[element]) {
+        counted[element]++;
+      } else {
+        counted[element] = 1;
+      }
+    }
+  });
+  return counted;
 }
 
 
