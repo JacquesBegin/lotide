@@ -7,7 +7,12 @@ const findKeyByValue = function(obj, value) {
   return undefined;
 }
 
-
+const shows = {
+  "sci-fi": "Star Trek",
+  "action": "Diehard",
+  "drama": "Lame Movie"
 }
+
+
 
 
