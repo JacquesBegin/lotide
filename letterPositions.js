@@ -1,0 +1,5 @@
+
+
+const letterPositions = function(sentence) {
+  
+}
