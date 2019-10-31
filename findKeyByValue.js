@@ -1,4 +1,4 @@
-const assertArraysEqual = require("./assertArraysEqual.js");
+const assertEqual = require("./assertEqual.js");
 
 const findKeyByValue = function(obj, value) {
   for (const item of obj) {
@@ -13,6 +13,6 @@ const shows = {
   "drama": "Lame Movie"
 }
 
-
+assertEqual()
 
 
