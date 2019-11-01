@@ -8,6 +8,8 @@ const eqObjects = function(obj1, obj2) {
 
   for(const item1 in obj1) {
     if (!obj2[item1] || obj1[item1] !== obj2[item1]) return false;
+    // TODO: incorporate check for arrays and objects. Objects check will be recrusive.
+
   }
 
   return true;
