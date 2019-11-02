@@ -12,13 +12,18 @@ const eqObjects = function(obj1, obj2) {
   for(const item in obj1) {
     // Check if key is present in second object
     if (!obj2[item]) return false;
-      else if (checkIfArray(obj1[item]) && checkIfArray(obj2[item])) {
-      if (!checkArrays(obj1[item], obj2[item])) return false;
-    } else if (checkIfObject(obj1[item]) && checkIfObject(obj2[item])) {
-      if (!eqObjects(obj1[item], obj2[item])) return false;
-    } else {
-      if (obj1[item] !== obj2[item]) return false;
-    }
+    if (!compareItems(obj1[item], obj2[item])) return false;
+  }
+  return true;
+}
+
+function compareItems(item1, item2) {
+  if (checkIfArray(item1) && checkIfArray(item2)) {
+    if (!checkArrays(item1, item2)) return false;
+  } else if (checkIfObject(item1) && checkIfObject(item2)) {
+    if (!eqObjects(item1, item2)) return false;
+  } else {
+    if (item1 !== item2) return false;
   }
   return true;
 }
@@ -30,12 +35,11 @@ function checkIfArray(arr) {
 
 // Check if arrays are equal
 function checkArrays(arr1, arr2) {
-    if (arr1.length !== arr2.length) return false;
+  if (arr1.length !== arr2.length) return false;
+  for (let i = 0; i < arr1.length; i++) {
+    if ()
+  }
 
-
-    // for (let x = 0; x < obj1[item1].length; x++) {
-    //   if ()
-    // }
   return false;
 }
 
