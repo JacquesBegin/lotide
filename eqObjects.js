@@ -1,6 +1,6 @@
 const assertEqual = require("./assertEqual.js");
 
-// Only test equality for primitives not for nested objects!!
+// Deep/nested check if two objects are equal
 const eqObjects = function(obj1, obj2) {
   
   // Check that each object is the same size
@@ -61,5 +61,5 @@ function equalObjects(obj1, obj2) {
   }
 }
 
-console.log(equalObjects({"a": "a", "b": "b", "c": {"d": "d", "e": "e"}}, {"a": "a", "b": "b", "c": {"d": "d", "e": "e"}}));
+console.log(equalObjects({"a": "a", "b": "b", "c": {"d": "d", "e": {"f": "f", "g": "g"}}}, {"a": "a", "b": "b", "c": {"d": "d", "e": {"g": "g", "f": "f"}}}));
 console.log(equalObjects(1, {"a": "a", "b": "b"}));
