@@ -37,10 +37,8 @@ function checkIfArray(arr) {
 function checkArrays(arr1, arr2) {
   if (arr1.length !== arr2.length) return false;
   for (let i = 0; i < arr1.length; i++) {
-    if ()
+    if (!compareItems(arr1[i], arr2[i])) return false;
   }
-
-  return false;
 }
 
 
@@ -56,16 +54,63 @@ function equalObjects(obj1, obj2) {
   if (!(checkIfObject(obj1) && checkIfObject(obj2))) {
     throw "Agrument not an OBJECT";
   }
-
   try {
     return eqObjects(obj1, obj2);
   }
-
   catch(e) {
     // expected output: "Agrument not an OBJECT"
     console.error(e);
   }
 }
 
+const testObj1 = {
+  id: 101,
+    email: 'jack@dev.com',
+    personalInfo: {
+        name: 'Jack',
+        address: {
+            line1: 'westwish st',
+            line2: 'washmasher',
+            city: 'wallas',
+            state: 'WX',
+            arr: [1, 2, 3, {
+                            "1": "1", 
+                            "2": "2", 
+                            "3": [4, 5, 6, [45, 54, 32], {
+                                                          "hi": "hi",
+                                                          "bye": "bye"
+                                                          }
+                                  ]
+                            }
+                  ]
+        }
+    }
+}
+
+const testObj2 = {
+  id: 101,
+    email: 'jack@dev.com',
+    personalInfo: {
+        name: 'Jack',
+        address: {
+            line1: 'westwish st',
+            line2: 'washmasher',
+            city: 'wallas',
+            state: 'WX',
+            arr: [1, 2, 3, {
+                            "1": "1", 
+                            "2": "2", 
+                            "3": [4, 5, 6, [45, 54, 32], {
+                                                          "hi": "hi",
+                                                          "bye": "bye"
+                                                          }
+                                  ]
+                            }
+                  ]
+        }
+    }
+}
+
 console.log(equalObjects({"a": "a", "b": "b", "c": {"d": "d", "e": {"f": "f", "g": "g"}}}, {"a": "a", "b": "b", "c": {"d": "d", "e": {"g": "g", "f": "f"}}}));
-console.log(equalObjects(1, {"a": "a", "b": "b"}));
+// console.log(equalObjects(1, {"a": "a", "b": "b"}));
+console.log(equalObjects(testObj1, testObj2));
