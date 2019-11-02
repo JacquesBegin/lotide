@@ -101,6 +101,14 @@ const testObj1 = {
                             }
                   ]
         }
+    },
+    position: 'cashier',
+    type: 'hourly',
+    isAvailable: true,
+    showDetails() {
+        const accepting = this.isAvailable ? 'is accepting applications' : "is not currently accepting applications";
+
+        console.log(`The ${this.position} position is ${this.type} and ${accepting}.`);
     }
 }
 
@@ -141,9 +149,34 @@ const testObj2 = {
                             }
                   ]
         }
+    },
+    position: 'cashier',
+    type: 'hourly',
+    isAvailable: true,
+    showDetails() {
+        const accepting = this.isAvailable ? 'is accepting applications' : "is not currently accepting applications";
+
+        console.log(`The ${this.position} position is ${this.type} and ${accepting}.`);
     }
+}
+
+const funcObj1 = {
+  showDetails() {
+    const accepting = this.isAvailable ? 'is accepting applications' : "is not currently accepting applications";
+
+    console.log(`The ${this.position} position is ${this.type} and ${accepting}.`);
+  }
+}
+
+const funcObj2 = {
+  showDetails() {
+    const accepting = this.isAvailable ? 'is accepting applications' : "is not currently accepting applications";
+
+    console.log(`The ${this.position} position is ${this.type} and ${accepting}.`);
+  }
 }
 
 console.log(equalObjects({"a": "a", "b": "b", "c": {"d": "d", "e": {"f": "f", "g": "g"}}}, {"a": "a", "b": "b", "c": {"d": "d", "e": {"g": "g", "f": "f"}}}));
 // console.log(equalObjects(1, {"a": "a", "b": "b"}));
 console.log(equalObjects(testObj1, testObj2));
+console.log(equalObjects(funcObj1, funcObj2));
