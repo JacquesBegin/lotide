@@ -9,7 +9,17 @@ const eqObjects = function(obj1, obj2) {
   }
 
   // Loop through each key of the first object
-  
+  for(const item in obj1) {
+    // Check if key is present in second object
+    if (!obj2[item]) return false;
+
+    // if (!checkIfArray(obj1[item], obj2[item])) return false;
+    else if (checkIfObject(obj1[item]) && checkIfObject(obj2[item])) {
+      if (!eqObjects(obj1[item], obj2[item])) return false;
+    } else {
+      if (obj1[item] !== obj2[item]) return false;
+    }
+  }
 
   return true;
 }
