@@ -4,20 +4,12 @@ const assertEqual = require("./assertEqual.js");
 const eqObjects = function(obj1, obj2) {
   
   // Check that each object is the same size
-  if (Object.keys(obj1).length !== Object.keys(obj2).length) {
+  if ((obj1 && obj2) && Object.keys(obj1).length !== Object.keys(obj2).length) {
     return false;
   }
 
   // Loop through each key of the first object
-  for(const item1 in obj1) {
-    // Check if key is present in second object
-    if (!obj2[item1]) return false;
-
-    // if (!checkIfArray(obj1[item1], obj2[item1])) return false;
-    
-    // if (obj1[item1] !== obj2[item1]) return false;
-
-  }
+  
 
   return true;
 }
@@ -32,10 +24,11 @@ function checkIfArray(item1, item2) {
     // }
     
   }
+  return false;
 }
 
-// function check
 
+// Check that argument is an object literal
 function checkIfObject(obj) {
   if (obj === null || typeof obj === "function") return false;
   return typeof obj === "object";
@@ -43,7 +36,7 @@ function checkIfObject(obj) {
 
 
 function equalObjects(obj1, obj2) {
-  // Check that both arguments are objects
+  // Check that both arguments are objects, throw error if not
   if (!(checkIfObject(obj1) && checkIfObject(obj2))) {
     throw "Agrument not an OBJECT";
   }
@@ -53,10 +46,10 @@ function equalObjects(obj1, obj2) {
   }
 
   catch(e) {
-    console.error(e);
     // expected output: "Agrument not an OBJECT"
+    console.error(e);
   }
 }
 
-console.log(equalObjects({"a": "a", "b": "b"}, {"a": "a", "b": "b"}));
+console.log(equalObjects({"a": "a", "b": "b", "c": {"d": "d", "e": "e"}}, {"a": "a", "b": "b", "c": {"d": "d", "e": "e"}}));
 console.log(equalObjects(1, {"a": "a", "b": "b"}));
