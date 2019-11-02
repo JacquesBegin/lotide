@@ -67,6 +67,22 @@ function equalObjects(obj1, obj2) {
 const testObj1 = {
   id: 101,
     email: 'jack@dev.com',
+    address: {
+      line1: 'westwish st',
+      line2: 'washmasher',
+      city: 'wallas',
+      state: 'WX',
+      arr: [1, 2, 3, {
+                      "1": "1", 
+                      "2": "2", 
+                      "3": [4, 5, 6, [45, 54, 32], {
+                                                    "hi": "hi",
+                                                    "bye": "bye"
+                                                    }
+                            ]
+                      }
+            ]
+    },
     personalInfo: {
         name: 'Jack',
         address: {
@@ -91,6 +107,22 @@ const testObj1 = {
 const testObj2 = {
   id: 101,
     email: 'jack@dev.com',
+    address: {
+      line1: 'westwish st',
+      line2: 'washmasher',
+      city: 'wallas',
+      state: 'WX',
+      arr: [1, 2, 3, {
+                      "1": "1", 
+                      "2": "2", 
+                      "3": [4, 5, 6, [45, 54, 32], {
+                                                    "hi": "hi",
+                                                    "bye": "bye"
+                                                    }
+                            ]
+                      }
+            ]
+    },
     personalInfo: {
         name: 'Jack',
         address: {
