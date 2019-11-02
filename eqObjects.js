@@ -1,32 +1,5 @@
 const assertEqual = require("./assertEqual.js");
 
-// Deep/nested check if two objects are equal
-const eqObjects = function(obj1, obj2) {
-  
-  // Check that each object is the same size
-  if ((obj1 && obj2) && Object.keys(obj1).length !== Object.keys(obj2).length) {
-    return false;
-  }
-
-  // Loop through each key of the first object
-  for(const item in obj1) {
-    // Check if key is present in second object
-    if (!obj2[item]) return false;
-    if (!compareItems(obj1[item], obj2[item])) return false;
-  }
-  return true;
-}
-
-function compareItems(item1, item2) {
-  if (checkIfArray(item1) && checkIfArray(item2)) {
-    if (!checkArrays(item1, item2)) return false;
-  } else if (checkIfObject(item1) && checkIfObject(item2)) {
-    if (!eqObjects(item1, item2)) return false;
-  } else {
-    if (item1 !== item2) return false;
-  }
-  return true;
-}
 
 // Check if argument is an array
 function checkIfArray(arr) {
@@ -42,6 +15,17 @@ function checkArrays(arr1, arr2) {
   return true;
 }
 
+// Check if argument is a function
+function checkIfFunction(func) {
+  return typeof func === "function";
+}
+
+// Check if both arguments are the same function
+function checkFunctions(func1, func2) {
+  if (func1.toString() !== func2.toString()) return false;
+  return true;
+}
+
 
 // Check that argument is an object literal
 function checkIfObject(obj) {
@@ -49,17 +33,49 @@ function checkIfObject(obj) {
   return typeof obj === "object";
 }
 
+// Deep/nested check if two objects are equal
+const checkObjects = function(obj1, obj2) {
+  
+  // Check that each object is the same size
+  if ((obj1 && obj2) && Object.keys(obj1).length !== Object.keys(obj2).length) {
+    return false;
+  }
+
+  // Loop through each key of the first object
+  for(const item in obj1) {
+    // Check if key is present in second object
+    if (!obj2[item]) return false;
+    if (!compareItems(obj1[item], obj2[item])) return false;
+  }
+  return true;
+}
+
+// Run comparsion between object keys checking if each is an array, object,
+// function, or primitive
+function compareItems(item1, item2) {
+  if (checkIfArray(item1) && checkIfArray(item2)) {
+    if (!checkArrays(item1, item2)) return false;
+  } else if (checkIfObject(item1) && checkIfObject(item2)) {
+    if (!checkObjects(item1, item2)) return false;
+  } else if (checkIfFunction(item1) && checkIfFunction(item2)) {
+    if (!checkFunctions(item1, item2)) return false;
+  } else {
+    if (item1 !== item2) return false;
+  }
+  return true;
+}
+
 
 function equalObjects(obj1, obj2) {
   // Check that both arguments are objects, throw error if not
   if (!(checkIfObject(obj1) && checkIfObject(obj2))) {
-    throw "Agrument not an OBJECT";
+    throw "One or both agruments are not an OBJECT";
   }
   try {
-    return eqObjects(obj1, obj2);
+    return checkObjects(obj1, obj2);
   }
   catch(e) {
-    // expected output: "Agrument not an OBJECT"
+    // expected output: "One or both agruments are not an OBJECT"
     console.error(e);
   }
 }
